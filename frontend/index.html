@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartRailway · Trains & Routes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#trains" aria-label="SmartRailway home">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="5" fill="#F6C21C"/><path d="M11 6 8 28M23 6l3 22M9.6 12h14.8M8.8 20h16.4" stroke="#16233B" stroke-width="2.6" stroke-linecap="round"/></svg>
+      SmartRailway
+    </a>
+    <nav id="nav" aria-label="Main">
+      <a href="#trains">Trains</a>
+      <a href="#find">Find trains</a>
+      <a href="#stations">Stations</a>
+      <a href="#inspect">DSA inspector</a>
+    </nav>
+  </div>
+</header>
+<main id="app" tabindex="-1"></main>
+
+<dialog id="dlg">
+  <form id="trainForm" novalidate>
+    <h2 id="dlgTitle">Add train</h2>
+    <div class="fields">
+      <label>Train number<input id="fNo" inputmode="numeric" placeholder="12001"></label>
+      <label class="grow">Train name<input id="fName" placeholder="Deccan Express"></label>
+      <label>Total seats<input id="fSeats" inputmode="numeric" placeholder="120"></label>
+    </div>
+    <div class="stops-head"><h3>Route</h3><span class="muted">List stations in travel order. Fare is the total from the first station.</span></div>
+    <div id="stopRows"></div>
+    <button type="button" class="btn ghost" id="addStop">+ Add station</button>
+    <p class="form-err" id="formErr" role="alert"></p>
+    <div class="actions"><button type="button" class="btn ghost" id="cancelBtn">Cancel</button><button class="btn primary" id="saveBtn">Save train</button></div>
+  </form>
+</dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>

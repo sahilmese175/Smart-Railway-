@@ -1,0 +1,6 @@
+# trainNo|name|seats|station~arrival~departure~cumulativeFare;...  (the app rewrites this file on every change)
+12001|Deccan Express|120|Pune~~06:00~0;Lonavala~07:08~07:10~80;Karjat~07:45~07:47~140;Kalyan~08:40~08:42~220;Mumbai~09:50~~280
+12002|Pragati Express|100|Pune~~07:15~0;Lonavala~08:20~08:22~75;Karjat~08:58~09:00~135;Kalyan~09:50~09:52~200;Mumbai~10:55~~255
+11029|Koyna Express|150|Kolhapur~~08:50~0;Satara~11:05~11:07~110;Pune~14:20~14:30~230;Lonavala~15:55~15:57~300;Karjat~16:40~16:42~360;Mumbai~19:35~~470
+12127|Intercity Express|110|Mumbai~~06:40~0;Kalyan~07:30~07:32~60;Karjat~08:08~08:10~110;Lonavala~08:55~08:57~170;Pune~10:05~~250
+12295|Nagpur Duronto|90|Pune~~21:00~0;Daund~22:10~22:12~140;Manmad~01:20~01:25~330;Bhusaval~03:10~03:15~420;Nagpur~08:30~~640
