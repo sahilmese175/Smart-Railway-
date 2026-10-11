@@ -1,13 +1,19 @@
+
+# Build artifacts
 build/
-backend/data/trains.json
 *.o
 *.d
-.vscode/
-.idea/
-.DS_Store
-build/
-*.o
 *.exe
+
+# Local data
+backend/data/trains.json
+
+# Environment and dependencies
 .env
 venv/
 __pycache__/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
