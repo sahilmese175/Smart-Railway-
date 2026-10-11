@@ -1,0 +1,13 @@
+build/
+backend/data/trains.json
+*.o
+*.d
+.vscode/
+.idea/
+.DS_Store
+build/
+*.o
+*.exe
+.env
+venv/
+__pycache__/

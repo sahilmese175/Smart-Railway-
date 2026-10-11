@@ -1,0 +1,29 @@
+# CMake build (alternative to the Makefile; handy for Visual Studio / CLion).
+#   cmake -S . -B build-cmake && cmake --build build-cmake
+cmake_minimum_required(VERSION 3.14)
+project(SmartRailway CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+find_package(Threads REQUIRED)
+
+# Add your module's .cpp files to these lists (see CONTRIBUTING.md)
+set(TRAIN_SRC backend/train/train.cpp backend/train/train_json.cpp backend/train/seed_data.cpp backend/train/train_contract.cpp)
+set(API_SRC backend/api/router.cpp backend/api/routes_train.cpp backend/api/routes_meta.cpp backend/api/server.cpp)
+
+add_executable(railway_server backend/main.cpp ${API_SRC} ${TRAIN_SRC})
+target_include_directories(railway_server PRIVATE backend)
+target_link_libraries(railway_server PRIVATE Threads::Threads)
+if(WIN32)
+  target_link_libraries(railway_server PRIVATE ws2_32)
+endif()
+
+enable_testing()
+add_executable(test_ds tests/test_ds.cpp)
+target_include_directories(test_ds PRIVATE backend)
+add_executable(test_train tests/test_train.cpp ${TRAIN_SRC})
+target_include_directories(test_train PRIVATE backend)
+add_test(NAME ds COMMAND test_ds)
+add_test(NAME train COMMAND test_train)
