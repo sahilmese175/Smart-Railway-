@@ -68,7 +68,7 @@ int main(int argc, char** argv) {
     // ---- register every module's endpoints here --------------------------------------------
     api::Router router;
     api::registerTrainRoutes(router);       // Member 1
-    // api::registerBookingRoutes(router);  // Member 2  <- uncomment when the module exists
+    api::registerBookingRoutes(router);     // Member 2
     // api::registerSeatRoutes(router);     // Member 3
     // api::registerWaitingRoutes(router);  // Member 4
     api::registerMetaRoutes(router);

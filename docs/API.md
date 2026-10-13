@@ -48,6 +48,24 @@ distances increasing, times moving forward (a time earlier than the previous one
 | GET | `/api/validate?train=12001&from=Pune&to=Karjat` | `{"valid": true, "journey": {...}}` or `{"valid": false, "message": "..."}` |
 | GET | `/api/search?from=Pune&to=Mumbai&sort=duration&algo=merge&order=asc` | Trains that reach `to` after stopping at `from`. Each result has `srcIdx`, `dstIdx` (route positions), `fare`, `durationMin`, `stopsBetween`. Seat segments used: `srcIdx .. dstIdx-1`. |
 
+## Passengers and reservations
+
+The reservation module keeps independent demo train data (`12001`, Pune to Mumbai, 100 seats), so its bookings do not depend on the train-management module.
+
+| Method | Path | Notes |
+|---|---|---|
+| GET | `/api/passengers?q=Rahul` | List passengers; optional case-insensitive name search. |
+| POST | `/api/passengers` | Add passenger: `{"name":"Rahul","age":28}`. |
+| PUT | `/api/passengers/:id` | Update passenger using the same body. |
+| DELETE | `/api/passengers/:id` | Delete passenger; existing booking snapshots remain available. |
+| GET | `/api/booking-trains` | List reservation-module demo trains and stops. |
+| GET | `/api/bookings` | List bookings, including cancelled tickets. |
+| POST | `/api/bookings` | Create booking: `{"passengerId":1,"trainNo":12001,"source":"Pune","destination":"Mumbai"}`. Assigns an available seat and returns PNR and fare. |
+| GET | `/api/bookings/:pnr` | PNR enquiry. |
+| DELETE | `/api/bookings/:pnr` | Cancel ticket and release its seat. |
+
+The demo train fare is ₹2 per km (Pune–Mumbai is 150 km). Seat occupancy is tracked per route segment; cancelled bookings retain PNR history and release the seat.
+
 ## Dashboard and DSA lab
 
 | Method | Path | Notes |

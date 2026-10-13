@@ -55,4 +55,15 @@ export const api = {
   benchmark: (n) => call("GET", "/api/dsa/sort-benchmark" + qs({ n })),
   reset: () => call("POST", "/api/admin/reset"),
   meta: () => call("GET", "/api/meta"),
+
+  // ---- Member 2 reservation endpoints ----
+  passengers: (query = "") => call("GET", "/api/passengers" + qs({ q: query })),
+  addPassenger: (body) => call("POST", "/api/passengers", body),
+  updatePassenger: (id, body) => call("PUT", `/api/passengers/${id}`, body),
+  deletePassenger: (id) => call("DELETE", `/api/passengers/${id}`),
+  bookingTrains: () => call("GET", "/api/booking-trains"),
+  bookings: () => call("GET", "/api/bookings"),
+  createBooking: (body) => call("POST", "/api/bookings", body),
+  getBooking: (pnr) => call("GET", `/api/bookings/${pnr}`),
+  cancelBooking: (pnr) => call("DELETE", `/api/bookings/${pnr}`),
 };

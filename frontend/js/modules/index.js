@@ -6,7 +6,7 @@ import "./trains.js";      // Member 1
 import "./search.js";      // Member 1
 import "./stations.js";    // Member 1
 import "./dsa-lab.js";     // Member 1
-// import "./booking.js";  // Member 2  <- uncomment when the page exists
+import "./booking.js";    // Member 2
 // import "./seats.js";    // Member 3
 // import "./waiting.js";  // Member 4
 import "./team.js";        // project overview and how to add a module

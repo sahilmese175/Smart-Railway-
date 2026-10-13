@@ -50,8 +50,7 @@ int findTrainsBetween(const char* source, const char* destination, int* outTrain
 double fareBetween(int trainNo, int sourceIndex, int destinationIndex);  // rupees, or -1
 int segmentCount(int trainNo);                                  // stationCount - 1, or 0
 
-// ---- Member 2 interface (Booking)  : declare here when ready ----------------------
-// int  createBooking(...);   bool cancelBooking(int pnr);   bool searchPNR(int pnr, Booking& out);
+// ---- Member 2 interface (Booking) : implemented in backend/booking/booking.h --------
 
 // ---- Member 3 interface (Segment tree) : declare here when ready ------------------
 // bool checkAvailability(int trainNo, int seatNo, int fromSeg, int toSeg);

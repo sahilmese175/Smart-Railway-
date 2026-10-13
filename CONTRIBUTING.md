@@ -5,7 +5,7 @@ Four members, four modules, one app. You mostly stay inside your own folders, so
 | Member | Module | Backend folder | Page (frontend/js/modules/) | Status |
 |---|---|---|---|---|
 | 1 | Train, Station & Route | `backend/train/` | overview, trains, search, stations, dsa-lab | done |
-| 2 | Passenger & Reservation | `backend/booking/` | `booking.js` | to do |
+| 2 | Passenger & Reservation | `backend/booking/` | `booking.js` | done |
 | 3 | Segment-wise seats (segment tree) | `backend/segmenttree/` | `seats.js` | to do |
 | 4 | Waiting list & history | `backend/waiting/` | `waiting.js` | to do |
 
@@ -54,7 +54,7 @@ docs/API.md      REST endpoints of the train module
    ```
    Declare it in `backend/api/router.h` and call it in `backend/main.cpp` (the line is already there, commented out). Handlers run one at a time, so you do not need locks.
 3. **Build.** Add your `.cpp` files to `Makefile` (and `CMakeLists.txt`).
-4. **Page.** Create `frontend/js/modules/booking.js` with `registerPage({...})` and uncomment its import in `frontend/js/modules/index.js`. `frontend/js/modules/team.js` shows a complete small page.
+4. **Page.** Create `frontend/js/modules/booking.js` with `registerPage({...})` and add its import in `frontend/js/modules/index.js`. `frontend/js/modules/team.js` shows a complete small page.
 5. **Console messages.** If your handler fills `trace` (a list of strings) in its JSON, the "Data structure console" at the bottom of the UI prints it. `routes_train.cpp` shows how.
 6. **Test.** Write `tests/test_<module>.cpp`, add it to the `test` target, and run `make test`.
 

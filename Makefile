@@ -18,11 +18,13 @@ BUILD := build
 
 # Add your own module's .cpp files to this list (see CONTRIBUTING.md)
 TRAIN_SRC := backend/train/train.cpp backend/train/train_json.cpp backend/train/seed_data.cpp backend/train/train_contract.cpp
-API_SRC   := backend/api/router.cpp backend/api/routes_train.cpp backend/api/routes_meta.cpp backend/api/server.cpp
-SERVER_SRC := backend/main.cpp $(API_SRC) $(TRAIN_SRC)
+BOOKING_SRC := backend/booking/booking.cpp
+API_SRC   := backend/api/router.cpp backend/api/routes_train.cpp backend/api/routes_booking.cpp backend/api/routes_meta.cpp backend/api/server.cpp
+SERVER_SRC := backend/main.cpp $(API_SRC) $(TRAIN_SRC) $(BOOKING_SRC)
 
 SERVER_OBJ := $(SERVER_SRC:%.cpp=$(BUILD)/%.o)
 TRAIN_OBJ  := $(TRAIN_SRC:%.cpp=$(BUILD)/%.o)
+BOOKING_OBJ := $(BOOKING_SRC:%.cpp=$(BUILD)/%.o)
 
 EXE := $(BUILD)/railway_server
 ifeq ($(OS),Windows_NT)
@@ -49,9 +51,13 @@ $(BUILD)/test_ds: tests/test_ds.cpp
 $(BUILD)/test_train: tests/test_train.cpp $(TRAIN_OBJ)
 	$(CXX) $(CXXFLAGS) $(INC) $^ -o $@
 
-test: $(BUILD)/test_ds $(BUILD)/test_train
+$(BUILD)/test_booking: tests/test_booking.cpp $(BOOKING_OBJ) $(BUILD)/backend/api/routes_booking.o $(BUILD)/backend/api/router.o
+	$(CXX) $(CXXFLAGS) $(INC) $^ -o $@
+
+test: $(BUILD)/test_ds $(BUILD)/test_train $(BUILD)/test_booking
 	./$(BUILD)/test_ds
 	./$(BUILD)/test_train
+	./$(BUILD)/test_booking
 
 clean:
 	rm -rf $(BUILD)

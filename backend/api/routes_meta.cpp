@@ -7,8 +7,6 @@ namespace api {
 void registerMetaRoutes(Router& router) {
     // Modules that are not written yet are listed as "planned" so the Team page shows the whole picture.
     // When a teammate finishes a module, they change its status to "live" in their own register function.
-    router.addModule({"booking", "Passenger & Reservation", "Member 2", "planned",
-                      "Passengers, bookings, PNR, cancellation. Linked list + hash table + array."});
     router.addModule({"seats", "Segment-wise Seats", "Member 3", "planned",
                       "Seat inventory per route segment. Segment tree with lazy propagation."});
     router.addModule({"waiting", "Waiting List & History", "Member 4", "planned",

@@ -82,7 +82,7 @@ ds::DynamicArray<std::string> splitPath(const std::string& path);
 // ---- every module exposes one register function (declared here, defined in its routes file) ----
 void registerTrainRoutes(Router& router);   // Member 1  (api/routes_train.cpp)
 void registerMetaRoutes(Router& router);    // project info for the Team page (api/routes_meta.cpp)
-// void registerBookingRoutes(Router&);     // Member 2  -> add api/routes_booking.cpp
+void registerBookingRoutes(Router& router);  // Member 2  (api/routes_booking.cpp)
 // void registerSeatRoutes(Router&);        // Member 3
 // void registerWaitingRoutes(Router&);     // Member 4
 
